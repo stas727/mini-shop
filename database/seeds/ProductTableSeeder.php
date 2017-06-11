@@ -18,8 +18,8 @@ class ProductTableSeeder extends Seeder
          'category_description_id' => $desc->id
       ]);
 
-      factory(\App\models\product_options::class, 1)->create();
-      factory(\App\models\product::class, 1)->create();
+      factory(\App\models\product_options::class, 30)->create();
+      factory(\App\models\product::class, 30)->create();
 
 
       $this->command->info('successfully seed new products and options');

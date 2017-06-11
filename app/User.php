@@ -4,16 +4,11 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Bican\Roles\Traits\HasRoleAndPermission;
-use Bican\Roles\Contracts\HasRoleAndPermission as HasRoleAndPermissionContract;
-use App\role;
-use App\Comment;
 
-
-class User extends Authenticatable implements HasRoleAndPermissionContract
+class User extends Authenticatable
 {
    use Notifiable;
-   use HasRoleAndPermission;
+
    /*
     * strict->false in config/database
     */
@@ -36,26 +31,10 @@ class User extends Authenticatable implements HasRoleAndPermissionContract
       'password', 'remember_token',
    ];
 
-   public function role()
-   {
-      return $this->belongsTo('App\role');
-   }
-
-
-
-
    public function review(){
       return $this->hasMany('App\model\ecommerce\review', 'user_id');
    }
-   public function isAdmin()
-   {
-      //return (bool) $this->attributes['admin']; // or however you determine whether user is admin
-      if($this->hasRole(1) || $this->hasRole(2)){
-         return (bool) true;
-      }
-      return (bool) false;
 
-   }
    public function getCreatedAtAttribute($value)
    {
       return $this->dateFormat($value);

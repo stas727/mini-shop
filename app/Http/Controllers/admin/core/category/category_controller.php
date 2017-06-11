@@ -23,12 +23,10 @@ class category_controller extends Controller
 
       if ($btg->categories != NULL) {
          $tree = $btg->getTreeHtml();
-      } else {
-         $tree = "";
       }
 
-      $subcategories = category::all();
-      return view('admin.category.categorySettings', compact('categories', 'subcategories', 'tree'));
+
+      return view('admin.category.categorySettings', compact('categories', 'tree'));
    }
 
    public function createCategory(create $request)

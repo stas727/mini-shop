@@ -23,7 +23,7 @@ Route::group(['prefix' => \Illuminate\Support\Facades\Config::get('const.ADMIN_U
    //-----------------------------------------------------------------------------------------
 
    //categories-------------------------------------------------------------------------------
-   Route::get('/categories', 'admin\pages_controller@categories');
+   Route::get('/categories', 'admin\core\category\category_controller@index');
    Route::post('/delete/category', 'admin\core\category\category_controller@destroy');
    Route::post('/edit/category', 'admin\core\category\category_controller@update');
    Route::post('/create/category', 'admin\core\category\category_controller@createCategory');

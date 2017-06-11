@@ -178,8 +178,6 @@ return [
       App\Providers\RouteServiceProvider::class,
       //nested set
       Baum\Providers\BaumServiceProvider::class,
-      //user roles
-      Bican\Roles\RolesServiceProvider::class,
       Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
       //Barryvdh\Debugbar\ServiceProvider::class,
    ],
